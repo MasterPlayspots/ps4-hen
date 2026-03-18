@@ -57,6 +57,7 @@
 #include "offsets/1300.h"
 #include "offsets/1302.h"
 #include "offsets/1304.h"
+#include "offsets/1350.h"
 
 // clang-format on
 
@@ -164,6 +165,8 @@ PAYLOAD_CODE const struct kpayload_offsets *get_offsets_for_fw(uint16_t fw_versi
     return &offsets_1302;
   case 1304:
     return &offsets_1304;
+  case 1350:
+    return &offsets_1350;
   default:
     return NULL;
   }
