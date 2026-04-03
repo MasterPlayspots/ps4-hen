@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PS4 HEN Loader</title>
+<style>
+body { background: #1a1a2e; color: #e94560; font-family: monospace; text-align: center; padding-top: 50px; }
+h1 { font-size: 2em; }
+button { padding: 20px 40px; font-size: 1.5em; background: #e94560; color: white; border: none; border-radius: 8px; cursor: pointer; margin: 10px; }
+button:hover { background: #c81e45; }
+#status { margin-top: 30px; font-size: 1.2em; color: #16c79a; }
+</style>
+</head>
+<body>
+<h1>PS4 HEN Test Loader</h1>
+<p>Mac IP: 192.168.1.103 | PS4 IP: 192.168.1.104</p>
+<br>
+<button onclick="sendPayload()">Send HEN Payload</button>
+<button onclick="checkStatus()">Check Status</button>
+<div id="status">Ready. Click "Send HEN Payload" to load hen.bin via payload sender.</div>
+
+<script>
+function sendPayload() {
+    document.getElementById('status').innerText = 'Sending payload...';
+    fetch('/hen.bin')
+        .then(r => r.arrayBuffer())
+        .then(buf => {
+            document.getElementById('status').innerText = 
+                'Payload downloaded (' + buf.byteLength + ' bytes). ' +
+                'Note: The PS4 needs a kernel exploit first (eg. GoldHEN host, pOOBs4, etc.) ' +
+                'to load this payload. This page serves the binary for testing.';
+        })
+        .catch(e => {
+            document.getElementById('status').innerText = 'Error: ' + e;
+        });
+}
+function checkStatus() {
+    document.getElementById('status').innerText = 'Checking connectivity...';
+    fetch('/hen.bin', {method: 'HEAD'})
+        .then(r => {
+            document.getElementById('status').innerText = 
+                'Server OK. hen.bin available (' + r.headers.get('content-length') + ' bytes)';
+        })
+        .catch(e => {
+            document.getElementById('status').innerText = 'Server error: ' + e;
+        });
+}
+</script>
+</body>
+</html>

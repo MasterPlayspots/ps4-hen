@@ -1,0 +1,23 @@
+[2026-03-24 03:28:23] [INFO] === PS4 HEN Test Log ===
+[2026-03-24 03:28:23] [INFO] PS4 IP: 192.168.1.104
+[2026-03-24 03:28:23] [INFO] Mac IP: 192.168.1.103
+[2026-03-24 03:28:23] [INFO] HTTP server: running on port 8080
+[2026-03-24 03:28:23] [INFO] Payload: hen.bin (500160 bytes)
+[2026-03-24 03:28:23] [INFO] --- Build Results ---
+[2026-03-24 03:28:23] [INFO] SDK: ps4-payload-sdk (cloned in Docker amd64)
+[2026-03-24 03:28:23] [INFO] libPS4: compiled successfully (28 objects)
+[2026-03-24 03:28:23] [INFO] kpayload: compiled successfully (59 offset files + core)
+[2026-03-24 03:28:23] [INFO] installer: compiled successfully (13 source files)
+[2026-03-24 03:28:23] [INFO] plugins: downloaded from Scene-Collective/ps4-hen-plugins
+[2026-03-24 03:28:23] [INFO] hen.bin: 500160 bytes - BUILD OK
+[2026-03-24 03:28:23] [INFO] --- Network Checks ---
+[2026-03-24 03:28:23] [NETWORK] Port 2121 (FTP/HEN) - CLOSED
+[2026-03-24 03:28:23] [NETWORK] Port 9090 (PS4Debug) - CLOSED
+[2026-03-24 03:28:23] [NETWORK] Port 1337 (PayloadLoader) - CLOSED
+[2026-03-24 03:28:23] [INFO] --- HTTP Server Status ---
+[2026-03-24 03:28:23] [INFO] exploit.html: served (200 OK)
+[2026-03-24 03:28:23] [INFO] hen.bin: served (200 OK, 500160 bytes)
+[2026-03-24 03:28:23] [INFO] --- Test Summary ---
+[2026-03-24 03:28:23] [WARNING] HEN STATUS: NOT DETECTED (FTP port 2121 closed)
+[2026-03-24 03:28:23] [WARNING] This may mean: payload not yet loaded, exploit failed, or FTP not enabled
+[2026-03-24 03:28:23] [INFO] TEST RESULT: INCONCLUSIVE - load exploit.html on PS4 and retry

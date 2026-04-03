@@ -1,0 +1,75 @@
+[2026-03-24 03:42:38] [INFO] ============================================================
+[2026-03-24 03:42:38] [INFO] PS4 HEN Multi-Channel Test Report
+[2026-03-24 03:42:38] [INFO] ============================================================
+[2026-03-24 03:42:38] [INFO] Date: 2026-03-24 03:42:38
+[2026-03-24 03:42:38] [INFO] Mac IP: 192.168.1.103
+[2026-03-24 03:42:38] [INFO] PS4 IP: 192.168.1.104
+[2026-03-24 03:42:38] [INFO] 
+[2026-03-24 03:42:38] [INFO] --- 1. SYSTEM CHECKS ---
+[2026-03-24 03:42:38] [PASS] python3: found
+[2026-03-24 03:42:38] [PASS] git: found
+[2026-03-24 03:42:38] [PASS] make: found (via Docker)
+[2026-03-24 03:42:38] [PASS] curl: found
+[2026-03-24 03:42:38] [PASS] docker: found (v29.1.3, amd64 platform support)
+[2026-03-24 03:42:38] [INFO] 
+[2026-03-24 03:42:38] [INFO] --- 2. REPOSITORY ---
+[2026-03-24 03:42:38] [PASS] ps4-hen cloned from Scene-Collective/ps4-hen
+[2026-03-24 03:42:38] [INFO] HEN version: v2.2.0 BETA
+[2026-03-24 03:42:38] [INFO] Supported FW: 5.05 - 12.02
+[2026-03-24 03:42:38] [INFO] 
+[2026-03-24 03:42:38] [INFO] --- 3. SDK ---
+[2026-03-24 03:42:38] [WARN] Native build failed: Apple Silicon clang lacks -march=btver2
+[2026-03-24 03:42:38] [WARN] Rosetta build failed: clang Intel asm syntax incompatible
+[2026-03-24 03:42:38] [PASS] Docker amd64 build: SUCCESS
+[2026-03-24 03:42:38] [PASS] ps4-payload-sdk cloned in container
+[2026-03-24 03:42:38] [PASS] libPS4 compiled (28 objects, static lib)
+[2026-03-24 03:42:38] [INFO] 
+[2026-03-24 03:42:38] [INFO] --- 4. BUILD ---
+[2026-03-24 03:42:38] [PASS] kpayload: 59 offset files + core compiled
+[2026-03-24 03:42:38] [PASS] kpayload.bin: generated, xxd include created
+[2026-03-24 03:42:38] [PASS] plugins: downloaded from ps4-hen-plugins release
+[2026-03-24 03:42:38] [INFO]   - plugin_bootloader.prx
+[2026-03-24 03:42:38] [INFO]   - plugin_loader.prx
+[2026-03-24 03:42:38] [INFO]   - plugin_mono.prx
+[2026-03-24 03:42:38] [INFO]   - plugin_server.prx
+[2026-03-24 03:42:38] [INFO]   - plugin_shellcore.prx
+[2026-03-24 03:42:38] [PASS] installer: 13 source files compiled
+[2026-03-24 03:42:38] [PASS] hen.bin: 500,160 bytes - PAYLOAD READY
+[2026-03-24 03:42:38] [INFO] 
+[2026-03-24 03:42:38] [INFO] --- 5. HTTP SERVER ---
+[2026-03-24 03:42:38] [PASS] Server started on 192.168.1.103:8080
+[2026-03-24 03:42:38] [PASS] exploit.html: 200 OK
+[2026-03-24 03:42:38] [PASS] hen.bin: 200 OK (500,160 bytes)
+[2026-03-24 03:42:38] [PASS] index.html: 200 OK (landing page)
+[2026-03-24 03:42:38] [INFO] PS4 accessed server: GET / at 03:24:31
+[2026-03-24 03:42:38] [INFO] 
+[2026-03-24 03:42:38] [INFO] --- 6. NETWORK CHECKS ---
+[2026-03-24 03:42:38] [PASS] PS4 ping: reachable (192.168.1.104)
+[2026-03-24 03:42:38] [WARN] Port 2121 (FTP/HEN): CLOSED
+[2026-03-24 03:42:38] [WARN] Port 9020 (PayloadLoader): CLOSED
+[2026-03-24 03:42:38] [WARN] Port 9090 (PS4Debug): CLOSED
+[2026-03-24 03:42:38] [WARN] Port 1337 (BinLoader): CLOSED
+[2026-03-24 03:42:38] [INFO] 
+[2026-03-24 03:42:38] [INFO] --- 7. PAYLOAD DELIVERY ---
+[2026-03-24 03:42:38] [WARN] Direct payload send to port 9020: REFUSED
+[2026-03-24 03:42:38] [WARN] PS4 payload loader not active
+[2026-03-24 03:42:38] [INFO] Reason: PS4 needs kernel exploit chain first
+[2026-03-24 03:42:38] [INFO] hen.bin is a post-exploit payload, not a standalone exploit
+[2026-03-24 03:42:38] [INFO] 
+[2026-03-24 03:42:38] [INFO] --- 8. SUMMARY ---
+[2026-03-24 03:42:38] [PASS] Build:       hen.bin compiled successfully (500,160 bytes)
+[2026-03-24 03:42:38] [PASS] HTTP:        Server running, PS4 connected
+[2026-03-24 03:42:38] [PASS] Network:     PS4 reachable on LAN
+[2026-03-24 03:42:38] [WARN] HEN Status:  NOT ACTIVATED
+[2026-03-24 03:42:38] [INFO] 
+[2026-03-24 03:42:38] [INFO] REQUIRED: A WebKit+kernel exploit host page matching your
+[2026-03-24 03:42:38] [INFO] PS4 firmware (5.05-12.02) is needed to jailbreak first,
+[2026-03-24 03:42:38] [INFO] then hen.bin can be sent as payload.
+[2026-03-24 03:42:38] [INFO] 
+[2026-03-24 03:42:38] [INFO] Options:
+[2026-03-24 03:42:38] [INFO]   1. Use Al-Azif remote DNS (165.227.83.145) in PS4 network settings
+[2026-03-24 03:42:38] [INFO]   2. Host GoldHEN exploit page locally
+[2026-03-24 03:42:38] [INFO]   3. Use ps4-exploit-host with proper exploit files
+[2026-03-24 03:42:38] [INFO] 
+[2026-03-24 03:42:38] [INFO] ============================================================
+[2026-03-24 03:42:38] [INFO] END OF REPORT — saved to /Users/kevin/ps4-hen/ps4_hen_test_log_20260324_032900.txt
